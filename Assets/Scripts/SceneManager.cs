@@ -1,6 +1,7 @@
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
@@ -11,7 +12,7 @@ public class SceneManager : MonoBehaviour
     public GameObject valve;
     public AudioSource gasAudio;
     public GameObject nextSceneUI;
-    public GameObject teleportingArea;
+    public CalculateExamSceneScore calculateExamSceneScore;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class SceneManager : MonoBehaviour
         isGasEnd = false;
         gasParticle.SetActive(false);
         nextSceneUI.SetActive(false);
-        teleportingArea.GetComponent<NavMeshSurface>().enabled = false;
+        
     }
 
     public void StartScene()
@@ -28,6 +29,7 @@ public class SceneManager : MonoBehaviour
         isGasStart = true;
         valve.GetComponent<BoxCollider>().enabled = true;
         gasAudio.Play();
+        calculateExamSceneScore.StartScoreCountdown();
     }
 
     public void EndScene()

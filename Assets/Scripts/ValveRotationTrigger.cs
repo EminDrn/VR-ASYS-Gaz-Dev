@@ -12,8 +12,10 @@ public class ValveRotationTrigger : MonoBehaviour
     public GameObject targetObject;   // kapatılacak obje
     public AudioSource audioSource;   // ses kaynağı
     public AudioClip congratsClip;    // tebrikler sesi
+    
  
     private bool triggered = false;
+    [SerializeField] private bool isExamScene = false;
 
     private void Start()
     {
@@ -36,7 +38,7 @@ public class ValveRotationTrigger : MonoBehaviour
             if (targetObject != null)
                 targetObject.SetActive(false);
  
-            if (audioSource != null && congratsClip != null)
+            if (audioSource != null && congratsClip != null && isExamScene == false)
                 audioSource.PlayOneShot(congratsClip);
  
             Debug.Log("Vana -150'ye ulaştı! Tetiklendi.");

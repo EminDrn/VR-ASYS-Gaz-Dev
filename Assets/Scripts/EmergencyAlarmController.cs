@@ -6,12 +6,18 @@ using UnityEngine;
 public class EmergencyAlarmController : MonoBehaviour
 {
    public AudioSource alarmVoiceSource;
+   
 
    private void OnTriggerEnter(Collider other)
    {
-      if (other.CompareTag("LeftHand") || other.CompareTag("LeftHand") && SceneManager.isGasStart == true)
+      
+      if (other.CompareTag("LeftHand") || other.CompareTag("LeftHand"))
       {
-         alarmVoiceSource.Play();
+         if (SceneManager.isGasStart == true || SceneManager.isGasEnd == true)
+         {
+            alarmVoiceSource.Play();
+
+         }
       }
    }
 }
