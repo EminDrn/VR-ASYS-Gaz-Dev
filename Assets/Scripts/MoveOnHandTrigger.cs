@@ -17,23 +17,25 @@ public class MoveOnHandTrigger : MonoBehaviour
     public CalculateExamSceneScore calculateExamSceneScore;
     [SerializeField] private bool isExamScene = false;
 
+    private bool isMoving = false;
+    private bool isOpened = false; // Kapının zaten açılıp açılmadığını tutan yeni değişken
 
     private void Start()
     {
         teleportingArea.GetComponent<NavMeshObstacle>().enabled = true;
     }
 
-    private bool isMoving = false;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (isMoving) return;
+        // Eğer kapı zaten hareket ediyorsa VEYA zaten açılmışsa tekrar tetiklenme!
+        if (isMoving || isOpened) return;
 
         if (other.CompareTag("LeftHand") || other.CompareTag("RightHand"))
         {
             if (SceneManager.isGasEnd == true)
             {
                 isMoving = true;
+                isOpened = true; // Kapı açılmaya başladı, bir daha bu if'e giremez.
 
                 Vector3 targetPos = door.transform.position + new Vector3(0f, moveAmount, 0f);
 
@@ -53,11 +55,9 @@ public class MoveOnHandTrigger : MonoBehaviour
                 if (isExamScene == false)
                 {
                     wrongDoorBehaviourSound.Play();
-
                 }
                 calculateExamSceneScore.AddScore(20);
                 return;
-                
             }
         }
     }
@@ -65,7 +65,7 @@ public class MoveOnHandTrigger : MonoBehaviour
     private IEnumerator PlayDoorOpenSound()
     {
         doorOpenSound.Play();
-        yield return new WaitForSeconds(duration); // 4 saniye sonra ses durur
+        yield return new WaitForSeconds(duration); 
         doorOpenSound.Stop();
     }
 
@@ -75,7 +75,6 @@ public class MoveOnHandTrigger : MonoBehaviour
         if (isExamScene == false)
         {
             SuccesfulDoorOpenSound.Play();
-
         }
     }
 }
