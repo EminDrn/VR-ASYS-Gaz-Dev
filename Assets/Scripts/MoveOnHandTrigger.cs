@@ -56,7 +56,7 @@ public class MoveOnHandTrigger : MonoBehaviour
                 {
                     wrongDoorBehaviourSound.Play();
                 }
-                calculateExamSceneScore.AddScore(20);
+                calculateExamSceneScore.ElektrikButonuCezasi(); // -10, tüm butonlarda toplam en fazla -20
                 return;
             }
         }

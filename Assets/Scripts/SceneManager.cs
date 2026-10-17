@@ -34,6 +34,7 @@ public class SceneManager : MonoBehaviour
 
     public void EndScene()
     {
+        calculateExamSceneScore.StopScoreCountdown(); // Gaz kapandı, süre cezası durur
         nextSceneUI.SetActive(true);
         gasParticle.SetActive(false);
         isGasEnd = true;

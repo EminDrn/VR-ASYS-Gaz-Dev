@@ -12,8 +12,8 @@ public class GasWrongBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player")&& SceneManager.isGasStart == true && SceneManager.isGasEnd == false)
         {
-            
-            calculateExamSceneScore.AddScore(35);
+            // Puan kesme artık KnnDangerZoneSystem'de ("Gaz" bölgesi, en fazla 30).
+            // Burada sadece eğitim sahnesindeki uyarı sesi kaldı.
             if (isExamScene == false)
             {
                 GaswrongAudioSource.Play();
