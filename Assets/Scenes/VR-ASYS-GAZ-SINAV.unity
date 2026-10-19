@@ -146776,6 +146776,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 546087652922622874, guid: 139cc0a54df21e34ba16da763091d465, type: 3}
   m_PrefabInstance: {fileID: 1538780351}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1538901859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538901862}
+  - component: {fileID: 1538901861}
+  - component: {fileID: 1538901860}
+  m_Layer: 0
+  m_Name: GNN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1538901860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538901859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b46a4e6a03441b8bf9ec33e373cb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riskPredictor: {fileID: 0}
+  examScore: {fileID: 0}
+  trackedTarget: {fileID: 0}
+  gasBudget: 40
+  entryShare: 0.4
+  exposureTimeConstant: 5
+  cautionPenalty: 0
+  updateInterval: 0.5
+  reentryCooldown: 3
+  warningSound: {fileID: 0}
+  showDebugLogs: 0
+--- !u!114 &1538901861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538901859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015d1d36de43a4b538cd7c30ee0f954f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weightsJson: {fileID: 0}
+  graphJson: {fileID: 0}
+  siteArea: {fileID: 0}
+  gasSources: []
+  graphSettings:
+    cellSize: 0.5
+    siteMargin: 40
+    cautionDistance: 2.5
+    hazardProbeDistance: 30
+    clearanceProbeDistance: 5
+    overheadProbeDistance: 10
+    bodyRadius: 0.25
+    maxSlope: 35
+    maxStep: 0.5
+    exitKeywords:
+    - door
+    - exit
+    - kapi
+    - "kap\u0131"
+    - cikis
+    - "\xE7\u0131k\u0131\u015F"
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    gridOffset: {x: 0, y: 0}
+  drawGizmos: 1
+  gizmoShowsDecision: 1
+  showDebugLogs: 1
+--- !u!4 &1538901862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538901859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.861645, y: 2.6425972, z: 20.404703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1539000031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168539,6 +168635,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1124876909}
+  responseGracePeriod: 30
+  responseBudget: 30
+  responseTimeConstant: 30
+  ignitionFirstPenalty: 30
+  ignitionRepeatPenalty: 10
+  ignitionMaxPenalty: 50
+  noAlarmPenalty: 30
+  guvenliEsigi: 75
+  ortaRiskEsigi: 50
+  riskliEsigi: 25
 --- !u!1001 &1763031094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242649,3 +242755,4 @@ SceneRoots:
   - {fileID: 1292420468}
   - {fileID: 1762911281}
   - {fileID: 1191670921}
+  - {fileID: 1538901862}

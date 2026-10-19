@@ -17,7 +17,7 @@ public class FinishEducation : MonoBehaviour
         {
             if (alarmVoiceSource.isPlaying == false)
             {
-                calculateExamSceneScore.AddScore(25);
+                calculateExamSceneScore.EvacuatedWithoutAlarm();
             }
             alarmVoiceSource.Stop();
             if (!isExamScene)

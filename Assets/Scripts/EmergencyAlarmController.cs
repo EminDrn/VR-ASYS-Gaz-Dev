@@ -11,7 +11,7 @@ public class EmergencyAlarmController : MonoBehaviour
    private void OnTriggerEnter(Collider other)
    {
       
-      if (other.CompareTag("LeftHand") || other.CompareTag("LeftHand"))
+      if (other.CompareTag("LeftHand") || other.CompareTag("RightHand"))
       {
          if (SceneManager.isGasStart == true || SceneManager.isGasEnd == true)
          {

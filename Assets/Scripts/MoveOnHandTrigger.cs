@@ -56,7 +56,8 @@ public class MoveOnHandTrigger : MonoBehaviour
                 {
                     wrongDoorBehaviourSound.Play();
                 }
-                calculateExamSceneScore.AddScore(20);
+                // Gaz varken elektrikli butona basmak kıvılcım (ateşleme) riski
+                calculateExamSceneScore.IgnitionSourceUsed();
                 return;
             }
         }

@@ -39,6 +39,7 @@ public class SceneManager : MonoBehaviour
         isGasEnd = true;
         isGasStart = false;
         gasAudio.Stop();
+        calculateExamSceneScore.OnValveClosed();
     }
 
     // Sonraki sahneye geç

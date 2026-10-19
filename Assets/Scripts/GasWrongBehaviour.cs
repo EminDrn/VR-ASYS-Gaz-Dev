@@ -13,7 +13,11 @@ public class GasWrongBehaviour : MonoBehaviour
         if (other.CompareTag("Player")&& SceneManager.isGasStart == true && SceneManager.isGasEnd == false)
         {
             
-            calculateExamSceneScore.AddScore(35);
+            // GNN puanlayıcı etkinse ceza risk haritasından verilir, kutu yalnızca eğitim etiketidir
+            if (!GnnRiskScorer.IsScoring)
+            {
+                calculateExamSceneScore.AddScore(35);
+            }
             if (isExamScene == false)
             {
                 GaswrongAudioSource.Play();
